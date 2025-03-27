@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin : 0;
+}
+.game-control {
+    position: fixed;
+    width : 100%;
+    height: 100%;
+    background-color: #03a9f4a3;
+    left : 0;
+    top : 0;
+    z-index: 2;
+}
+.game-control span {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    padding: 13px 30px;
+    background-color: red;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    cursor: pointer;
+}
+.game-info {
+    width: 1080px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #e9e9e9;
+    padding: 20px;
+    border : 1px solid #03a9f4;
+}
+.game-block-container {
+    width : 1100px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* text-align: center; */
+}
+.game-block-container.stop-clicking {
+    pointer-events: none;
+}
+.game-block-container .block {
+    width : 200px;
+    height: 200px;
+    margin : 10px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+.game-block-container .block.flipped,
+.game-block-container .block.checked {
+    transform: rotateY(180deg);
+}
+.game-block-container .block  div {
+    position: absolute;
+    width : 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border : 5px solid #03a9f4;
+    text-align: center;
+}
+.game-block-container .block .back {
+    transform: rotateY(180deg);
+    background-color: #607d8d;
+}
+.game-block-container .block .front {
+    background-color: #333;
+}
+.game-block-container .block .front::before {
+    content: "?";
+    position: absolute;
+    font-size: 160px;
+    color : #fff;
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%,-50%);
+}
+.game-block-container .block img {
+    width : 140px;
+    height: 140px;
+    margin-top : 30px;
+}
